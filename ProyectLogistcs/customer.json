@@ -1,0 +1,149 @@
+[
+    {
+        "first_name": "Juan Carlos",
+        "last_name": "Pérez López",
+        "zone": "Zona Centro",
+        "address": "Avenida Heroínas",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "María Fernanda",
+        "last_name": "García Vargas",
+        "zone": "Zona Centro",
+        "address": "Calle España",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Luis Alberto",
+        "last_name": "Rodríguez Mendoza",
+        "zone": "Zona Centro",
+        "address": "Calle Jordán",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Ana Patricia",
+        "last_name": "Flores Salazar",
+        "zone": "Zona Centro",
+        "address": "Calle Antezana",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Jorge Luis",
+        "last_name": "Ramírez Gutiérrez",
+        "zone": "Zona Centro",
+        "address": "Calle Bolívar",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Carla Andrea",
+        "last_name": "Cruz Vargas",
+        "zone": "Zona Centro",
+        "address": "Calle 25 de Mayo",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "José Miguel",
+        "last_name": "Martínez Quiroga",
+        "zone": "Zona Centro",
+        "address": "Calle Sucre",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Lucía Alejandra",
+        "last_name": "Rojas Mamani",
+        "zone": "Zona Centro",
+        "address": "Calle Lanza",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Mario Enrique",
+        "last_name": "Gutiérrez Huanca",
+        "zone": "Zona Centro",
+        "address": "Avenida Ramón Rivero",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Gabriela Daniela",
+        "last_name": "Fernández López",
+        "zone": "Zona Centro",
+        "address": "Calle Baptista",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Fernando Antonio",
+        "last_name": "Chávez Torres",
+        "zone": "Zona Centro",
+        "address": "Avenida Oquendo",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Roxana Elizabeth",
+        "last_name": "Arce Condori",
+        "zone": "Zona Centro",
+        "address": "Calle Colombia",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "David Esteban",
+        "last_name": "Mendoza Suárez",
+        "zone": "Zona Centro",
+        "address": "Avenida Ayacucho",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Paola Carolina",
+        "last_name": "Villarroel Roca",
+        "zone": "Zona Norte",
+        "address": "Avenida América",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Ricardo Emilio",
+        "last_name": "Calderón Quispe",
+        "zone": "Zona Norte",
+        "address": "Avenida Pando",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Verónica Beatriz",
+        "last_name": "Ortiz Camacho",
+        "zone": "Zona Norte",
+        "address": "Avenida Villarroel",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Daniel Alejandro",
+        "last_name": "Aguilar Calle",
+        "zone": "Zona Norte",
+        "address": "Avenida Simón López",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Laura Cecilia",
+        "last_name": "Jiménez Espinoza",
+        "zone": "Zona Sur",
+        "address": "Avenida Beijing",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Carlos Eduardo",
+        "last_name": "Salinas Peña",
+        "zone": "Zona Sur",
+        "address": "Avenida Panamericana",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Ana Patricia",
+        "last_name": "Flores Salazar",
+        "zone": "Zona Sur",
+        "address": "Calle Tarata",
+        "city": "Cochabamba"
+    },
+    {
+        "first_name": "Jorge Luis",
+        "last_name": "Ramírez Gutiérrez",
+        "zone": "Zona Sur",
+        "address": "Villa Primero mayo",
+        "city": "Cochabamba"
+    }
+]
