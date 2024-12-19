@@ -1,11 +1,9 @@
 from pydantic import BaseModel
 from domain.enums.zone import Zone
+from domain.enums.delivery_person_status import DeliveryPersonStatus
 
-
-# Modelo para la entrada de datos
-class DeliveryPersonCreateModels(BaseModel):
-    id: str
+class DeliveryPersonCreateModel(BaseModel):
     first_name: str
     last_name: str
     zone: Zone
-
+    status: DeliveryPersonStatus = DeliveryPersonStatus.FREE

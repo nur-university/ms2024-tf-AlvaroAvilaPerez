@@ -1,27 +1,26 @@
+from domain.abstractions.id_generator import IDGenerator
 from domain.enums.delivery_person_status import DeliveryPersonStatus
 from domain.enums.zone import Zone
-from domain.abstractions.base_entity import DeliveryPersonID
 
 
 class DeliveryPerson:
-    def __init__(self, id: DeliveryPersonID, first_name: str, last_name: str, zone: Zone, status: DeliveryPersonStatus = DeliveryPersonStatus.FREE):
-        self.id = id
+    deleted_ids = set()  # Set to store deleted IDs
+    counter = 1  # Counter for generating new IDs
+
+    def __init__(self, first_name: str, last_name: str, zone: Zone, status: DeliveryPersonStatus = DeliveryPersonStatus.FREE, repository=None):
+        self.id = self.create_new_id(repository)
         self.first_name = first_name
         self.last_name = last_name
         self.zone = zone
         self.status = status
-        self.assigned_deliveries = []  # Inicializa el atributo 'assigned_deliveries' como lista vacía
 
-
-    def set_status(self, status: DeliveryPersonStatus):
-        self.status = status
-
-    def assign_delivery(self, delivery_id: str):
-        """Asignar un pedido al repartidor, pero solo si tiene menos de 3 asignaciones pendientes."""
-        if len(self.assigned_deliveries) >= 3:
-            raise ValueError("Cannot assign more than 3 pending deliveries to a delivery person.")
-        self.assigned_deliveries.append(delivery_id)
-
-    def get_assigned_deliveries(self):
-        """Devuelve la lista de entregas asignadas."""
-        return self.assigned_deliveries
+    @staticmethod
+    def create_new_id(repository=None) -> str:
+        """Generates a new ID ensuring deleted IDs are not reused."""
+        if repository:  # Use repository-based ID generation
+            return IDGenerator.generate_id(repository, 'DP')
+        while DeliveryPerson.counter in DeliveryPerson.deleted_ids:  # Skip deleted IDs
+            DeliveryPerson.counter += 1
+        formatted_id = str(DeliveryPerson.counter).zfill(3)  # Format: DP-001, DP-002, etc.
+        DeliveryPerson.counter += 1
+        return f"DP-{formatted_id}"

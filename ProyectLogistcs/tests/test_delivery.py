@@ -1,8 +1,8 @@
 import unittest
 from datetime import date
 from domain.entities.delivery import Delivery
-from domain.enums.delivery_status import DeliveryStatus
-from domain.abstractions.base_entity import DeliveryID
+from domain.enums.package_status import PackageStatus
+from domain.abstractions.base_id import DeliveryID
 
 
 class TestDelivery(unittest.TestCase):
@@ -16,7 +16,7 @@ class TestDelivery(unittest.TestCase):
             client_name="Carlos López",
             delivery_date=date(2024, 12, 20),
             address="Av. América 456",
-            status=DeliveryStatus.pending
+            status=PackageStatus.pending
         )
 
         # Asignar un repartidor
@@ -24,7 +24,7 @@ class TestDelivery(unittest.TestCase):
 
         # Verificar que el repartidor fue asignado y el estado cambió a IN_PROGRESS
         self.assertEqual(delivery.person_id, "DP001")
-        self.assertEqual(delivery.status, DeliveryStatus.pending)
+        self.assertEqual(delivery.status, PackageStatus.pending)
 
     def test_assign_to_person_negative(self):
         # Crear una instancia de Delivery en estado COMPLETED
@@ -35,7 +35,7 @@ class TestDelivery(unittest.TestCase):
             client_name="María Pérez",
             delivery_date=date(2024, 12, 22),
             address="Calle Bolívar 789",
-            status=DeliveryStatus.completed
+            status=PackageStatus.completed
         )
 
         # Intentar asignar un repartidor debe lanzar un ValueError

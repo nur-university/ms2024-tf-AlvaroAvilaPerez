@@ -1,6 +1,6 @@
 import pytest
 
-from domain.abstractions.base_entity import AbstractID, DeliveryPersonID, PackageID, DeliveryID
+from domain.abstractions.base_id import AbstractID, DeliveryPersonID, PackageID, DeliveryID
 
 
 # Pruebas

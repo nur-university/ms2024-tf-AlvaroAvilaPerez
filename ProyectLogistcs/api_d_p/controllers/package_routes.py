@@ -5,52 +5,51 @@ from models.package_response_model import PackageResponseModel
 from application.Services.package_service import PackageService
 
 router = APIRouter()
-service = PackageService()
+service_package = PackageService()
 
 @router.post("/", response_model=PackageResponseModel)
 def create_package(package: PackageCreateModel):
-    """
-    Crea un nuevo paquete en la base de datos.
-    """
     try:
-        created_package = service.add_package(
-            client_name=package.client_name,
+        created_package = service_package.add_package(
+            client_id=package.client_id,
             delivery_date=package.delivery_date,
-            address=package.address
         )
+        client = created_package.client
         return PackageResponseModel(
-            id=created_package.id,
-            client_name=created_package.client_name,
+            id=str(created_package.id),
+            client_id=created_package.client_id,
+            first_name=client.first_name,
+            last_name=client.last_name,
             delivery_date=created_package.delivery_date,
-            address=created_package.address,
-            status=created_package.status.value
+            address=client.address,
+            status=created_package.status  # Ensure the status field is included here
         )
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
 @router.get("/", response_model=List[PackageResponseModel])
 def read_packages():
-    """
-    Obtiene todos los paquetes registrados en la base de datos.
-    """
-    packages = service.get_all_packages()
-    return [
-        PackageResponseModel(
-            id=package.id,
-            client_name=package.client_name,
-            delivery_date=package.delivery_date,
-            address=package.address,
-            status=package.status.value
-        ) for package in packages
-    ]
+    try:
+        packages = service_package.get_all_packages()
+        return [
+            PackageResponseModel(
+                id=str(package.id),
+                client_id=package.client_id,  # Ensure client_id is in the response
+                first_name=package.client.first_name,
+                last_name=package.client.last_name,
+                delivery_date=package.delivery_date,
+                address=package.client.address,
+                status=package.status,
+            ) for package in packages
+        ]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Error retrieving packages: " + str(e))
 
 @router.delete("/{package_id}", response_model=dict)
 def delete_package(package_id: str):
-    """
-    Elimina un paquete de la base de datos.
-    """
     try:
-        service.delete_package(package_id)
+        service_package.delete_package(package_id)
         return {"detail": "Package deleted successfully"}
     except Exception as e:
-        raise HTTPException(status_code=404, detail=str(e))
+        raise HTTPException(status_code=404, detail="Package not found: " + str(e))
+

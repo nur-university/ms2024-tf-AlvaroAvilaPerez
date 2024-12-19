@@ -1,9 +1,7 @@
 from pydantic import BaseModel
 from domain.enums.zone import Zone
 
-
-# Modelo para la respuesta de datos
-class DeliveryPersonResponseModels(BaseModel):
+class DeliveryPersonResponseModel(BaseModel):
     id: str
     first_name: str
     last_name: str
